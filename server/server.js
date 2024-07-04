@@ -18,11 +18,11 @@ app.use(express.urlencoded({
 }));
 
 // Serve static files from the React app
-console.log('Serving static files from:', path.join(__dirname, '../frontend/build'));
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+console.log('Serving static files from:', path.join(__dirname, '../client/build'));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'), (err) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'), (err) => {
         if (err) {
             console.error('Failed to send index.html:', err);
             res.status(500).send(err);
